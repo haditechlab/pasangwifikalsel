@@ -8,12 +8,31 @@
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://pasangwifikalsel.site/" />
 
+  <!-- Static Favicon & Apple Touch Icon (Root Repository + Vector Fallback) -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23180638'/%3E%3Cstop offset='52%25' stop-color='%234C1D95'/%3E%3Cstop offset='100%25' stop-color='%23DB2777'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath fill='none' stroke='%23BEF264' stroke-linecap='round' stroke-linejoin='round' stroke-width='5' d='M22 43a14 14 0 0120 0M32 51h.01M14 35a25 25 0 0136 0M7 27a35 35 0 0150 0'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
   <!-- Open Graph / Social Preview -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PasangWiFiKalsel" />
   <meta property="og:url" content="https://pasangwifikalsel.site/" />
   <meta property="og:title" content="Pasang WiFi MyRepublic Banjarmasin, Banjarbaru &amp; Martapura | PasangWiFiKalsel" />
   <meta property="og:description" content="Cari paket WiFi MyRepublic di Banjarmasin, Banjarbaru, Martapura dan Kabupaten Banjar. Cek jangkauan, bandingkan paket internet, dan konsultasi pemasangan melalui WhatsApp." />
+  <meta property="og:image" content="https://pasangwifikalsel.site/og-image.webp" />
+  <meta property="og:image:secure_url" content="https://pasangwifikalsel.site/og-image.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Promo Pasang WiFi MyRepublic Banjarmasin, Banjarbaru &amp; Martapura - PasangWiFiKalsel" />
   <meta property="og:locale" content="id_ID" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pasang WiFi MyRepublic Banjarmasin, Banjarbaru &amp; Martapura | PasangWiFiKalsel" />
+  <meta name="twitter:description" content="Cari paket WiFi MyRepublic di Banjarmasin, Banjarbaru, Martapura dan Kabupaten Banjar. Cek jangkauan, bandingkan paket internet, dan konsultasi pemasangan melalui WhatsApp." />
+  <meta name="twitter:image" content="https://pasangwifikalsel.site/og-image.webp" />
+
+  <!-- Preload Main Hero Image (LCP Optimization) -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=800&q=80" imagesrcset="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=480&q=78 480w, https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=800&q=80 800w" imagesizes="(max-width: 1024px) 92vw, 480px" fetchpriority="high" />
 
   <!-- Security Hardening: Content-Security-Policy & Referrer-Policy -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://placehold.co; connect-src 'self' https://docs.google.com https://*.googleusercontent.com; base-uri 'self'; form-action 'self';" />
@@ -28,6 +47,7 @@
           "@type": "LocalBusiness",
           "name": "PasangWiFiKalsel - Mitra Resmi MyRepublic Kalimantan Selatan",
           "url": "https://pasangwifikalsel.site/",
+          "image": "https://pasangwifikalsel.site/og-image.webp",
           "telephone": "+6281347536097",
           "description": "Layanan pemasangan internet rumah dan usaha WiFi MyRepublic untuk wilayah Banjarmasin, Banjarbaru, Martapura, Kabupaten Banjar, dan Barito Kuala.",
           "areaServed": [
@@ -163,20 +183,20 @@
   </div>
 
   <!-- ==================== STICKY GLASS HEADER ==================== -->
-  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-purple-100/80 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-purple-100/80 shadow-sm">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-3">
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 group shrink-0">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#180638] via-[#4C1D95] to-[#DB2777] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition">
-          <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+      <a href="#" class="flex items-center gap-2 sm:gap-2.5 group min-w-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#180638] via-[#4C1D95] to-[#DB2777] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition shrink-0">
+          <svg aria-hidden="true" class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
           </svg>
         </div>
-        <div class="leading-none">
-          <span class="font-display font-extrabold text-base sm:text-xl tracking-tight text-[#180638]">
+        <div class="leading-none truncate">
+          <span class="font-display font-extrabold text-sm sm:text-xl tracking-tight text-[#180638] block truncate">
             PASANG<span class="brand-gradient-text">WIFI</span>KALSEL
           </span>
-          <span class="block text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wide mt-0.5">
+          <span class="block text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wide mt-0.5 truncate">
             Mitra Resmi MyRepublic • 0813-4753-6097
           </span>
         </div>
@@ -193,16 +213,17 @@
       </nav>
 
       <!-- Header Actions -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
         <button
           type="button"
           onclick="openWhatsApp('Halo Admin PasangWiFiKalsel, saya ingin tanya promo pemasangan WiFi MyRepublic 11.11 di Kalimantan Selatan.')"
-          class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-md hover:shadow-lg transition cursor-pointer"
+          class="inline-flex items-center justify-center gap-1.5 sm:gap-2 min-h-[40px] sm:min-h-[44px] px-3 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-md hover:shadow-lg transition cursor-pointer"
         >
-          <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+          <svg aria-hidden="true" class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
             <path d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.86 11.86 0 005.73 1.46h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.42zM12.07 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.76.98 1-3.66-.24-.38a9.86 9.86 0 01-1.51-5.25c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.89 7c0 5.46-4.44 9.89-9.88 9.89zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/>
           </svg>
-          <span>Chat WhatsApp</span>
+          <span class="hidden min-[380px]:inline">Chat WhatsApp</span>
+          <span class="min-[380px]:hidden">Chat WA</span>
         </button>
 
         <!-- Mobile Menu Toggle -->
@@ -210,9 +231,11 @@
           id="mobileMenuBtn"
           type="button"
           aria-label="Buka Menu Navigasi"
-          class="lg:hidden p-2.5 rounded-xl border border-purple-200 text-[#180638] hover:bg-purple-50 transition"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          class="lg:hidden min-w-[40px] min-h-[40px] p-2 rounded-xl border border-purple-200 text-[#180638] hover:bg-purple-50 flex items-center justify-center transition"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -260,7 +283,7 @@
           <!-- Real-Time Countdown Timer -->
           <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 max-w-lg">
             <p class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-pink-200 mb-3 flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#BEF264]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-4 h-4 text-[#BEF264]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>Promo 11.11 Berakhir Dalam:</span>
@@ -294,7 +317,7 @@
               href="#cek-area"
               class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold text-sm sm:text-base bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition transform hover:-translate-y-0.5 text-center"
             >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
@@ -305,7 +328,7 @@
               class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold text-sm sm:text-base border-2 border-white/80 hover:border-white hover:bg-white/10 text-white transition text-center"
             >
               <span>Lihat Paket WiFi 11.11</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </a>
@@ -331,16 +354,19 @@
         <!-- Right Column (Hero Visual + 2 Floating Glass Cards) -->
         <div class="lg:col-span-5 relative">
           <div class="relative mx-auto max-w-md lg:max-w-none">
-            <!-- Main Image Frame -->
+            <!-- Main Image Frame (Optimized WebP + Responsive Srcset + LCP Priority) -->
             <div class="rounded-3xl overflow-hidden border-2 border-white/25 shadow-2xl bg-[#180638]">
               <img
-                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=900&q=80"
-                alt="Pasang WiFi MyRepublic cepat di Banjarmasin, Banjarbaru, dan Martapura untuk WFH dan keluarga"
-                width="900"
-                height="800"
+                src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=800&q=80"
+                srcset="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=480&q=78 480w, https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&fm=webp&w=800&q=80 800w"
+                sizes="(max-width: 1024px) 92vw, 480px"
+                alt="Laptop di meja kerja terhubung dengan jaringan internet fiber WiFi MyRepublic berkecepatan tinggi"
+                width="800"
+                height="710"
                 fetchpriority="high"
-                class="w-full h-[340px] sm:h-[430px] object-cover object-center"
-                onerror="this.src='https://placehold.co/900x800/4C1D95/FFFFFF?text=MyRepublic+Kalsel+11.11'"
+                decoding="sync"
+                class="w-full h-[300px] sm:h-[430px] object-cover object-center"
+                onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://placehold.co/800x710/4C1D95/FFFFFF?text=MyRepublic+Kalsel+11.11'"
               />
               <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-[#180638]/75 via-transparent to-transparent pointer-events-none"></div>
             </div>
@@ -362,7 +388,7 @@
             <div class="sm:-right-4 bottom-4 right-3 left-3 sm:left-auto absolute bg-[#180638]/90 backdrop-blur-md text-white px-4 py-3.5 rounded-2xl shadow-xl border border-white/20">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-[#BEF264] text-[#141E00] flex items-center justify-center shrink-0">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
@@ -461,7 +487,7 @@
               id="btnGetGps"
               class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl text-sm font-bold bg-purple-100 hover:bg-purple-200 text-[#180638] border border-purple-200 transition cursor-pointer"
             >
-              <svg class="w-5 h-5 text-pink-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-5 h-5 text-pink-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-6.364l-1.414 1.414M8.05 15.95l-1.414 1.414m0-11.314l1.414 1.414m9.9 9.9l1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
               </svg>
               <span id="gpsBtnText">Ambil Titik Lokasi Saya (GPS)</span>
@@ -478,7 +504,7 @@
             class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full text-sm font-bold bg-gradient-to-r from-[#180638] via-[#4C1D95] to-[#BE185D] hover:opacity-95 active:scale-95 text-white shadow-lg transition cursor-pointer"
           >
             <span>Cek Ketersediaan Sekarang</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </button>
@@ -504,7 +530,7 @@
               class="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-sm bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition cursor-pointer"
             >
               <span>Kirim Titik &amp; Cek ODP via WhatsApp</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </button>
@@ -1172,7 +1198,7 @@
             class="shrink-0 w-full lg:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold text-sm bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition cursor-pointer"
           >
             <span>Tanya Paket Booster ke Admin</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </button>
@@ -1276,17 +1302,20 @@
   <section class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-purple-100">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-        <!-- Left Column: Image -->
+        <!-- Left Column: Image (Optimized WebP + Lazy Loading Below Fold) -->
         <div class="lg:col-span-5">
-          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-purple-100">
+          <div class="relative rounded-3xl overflow-hidden shadow-xl border border-purple-100 bg-[#180638]">
             <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
-              alt="Keluarga dan pelaku usaha di Banjarmasin, Banjarbaru, dan Martapura menggunakan internet fiber MyRepublic"
-              width="800"
-              height="700"
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&fm=webp&w=760&q=78"
+              srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&fm=webp&w=480&q=76 480w, https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&fm=webp&w=760&q=78 760w"
+              sizes="(max-width: 1024px) 92vw, 460px"
+              alt="Aktivitas kerja dan kolaborasi online menggunakan koneksi internet WiFi stabil"
+              width="760"
+              height="665"
               loading="lazy"
-              class="w-full h-[320px] sm:h-[420px] object-cover"
-              onerror="this.src='https://placehold.co/800x700/180638/BEF264?text=Gratis+Instalasi+Standar+150m'"
+              decoding="async"
+              class="w-full h-[300px] sm:h-[420px] object-cover"
+              onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://placehold.co/760x665/180638/BEF264?text=Gratis+Instalasi+Standar+150m'"
             />
             <div class="absolute bottom-4 left-4 right-4 bg-[#180638]/90 backdrop-blur-md text-white p-4 rounded-2xl border border-white/15">
               <p class="text-xs font-bold uppercase tracking-wider text-[#BEF264]">Jaminan Transaksi Resmi</p>
@@ -1338,7 +1367,7 @@
             <!-- Point 3 -->
             <div class="bg-lavender rounded-2xl p-5 border border-purple-100">
               <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#4C1D95] to-[#BE185D] text-white flex items-center justify-center mb-3.5 shadow-sm">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                 </svg>
               </div>
@@ -1353,7 +1382,7 @@
             <!-- Point 4 -->
             <div class="bg-lavender rounded-2xl p-5 border border-purple-100">
               <div class="w-11 h-11 rounded-xl bg-[#180638] text-[#BEF264] flex items-center justify-center mb-3.5 shadow-sm">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -1549,7 +1578,7 @@
                 class="w-full py-4 px-6 rounded-full font-extrabold text-sm sm:text-base bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Kirim Pendaftaran &amp; Cek ODP via WhatsApp</span>
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </button>
@@ -1694,9 +1723,9 @@
     type="button"
     onclick="openWhatsApp('Halo Admin PasangWiFiKalsel, saya ingin tanya promo pemasangan WiFi MyRepublic 11.11 dan cek jangkauan area saya.')"
     aria-label="Chat WhatsApp PasangWiFiKalsel"
-    class="wa-pulse fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 px-4 sm:px-5 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-sm shadow-2xl transition transform hover:scale-105 cursor-pointer"
+    class="wa-pulse fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50 inline-flex items-center justify-center gap-2.5 min-w-[52px] min-h-[52px] px-3.5 sm:px-5 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-sm shadow-2xl transition transform hover:scale-105 cursor-pointer"
   >
-    <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
+    <svg aria-hidden="true" class="w-6 h-6 fill-current shrink-0" viewBox="0 0 24 24">
       <path d="M20.52 3.48A11.86 11.86 0 0012.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.86 11.86 0 005.73 1.46h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.42zM12.07 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.76.98 1-3.66-.24-.38a9.86 9.86 0 01-1.51-5.25c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 012.89 7c0 5.46-4.44 9.89-9.88 9.89zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/>
     </svg>
     <span class="hidden sm:inline">Chat Admin WA</span>
@@ -2391,12 +2420,14 @@
     const mobileMenu = document.getElementById('mobileMenu');
 
     mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      const isHidden = mobileMenu.classList.toggle('hidden');
+      mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       });
     });
   </script>
