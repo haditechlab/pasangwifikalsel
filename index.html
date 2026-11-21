@@ -6,6 +6,10 @@
   <title>PasangWiFiKalsel — Mitra Resmi Pemasangan MyRepublic Kalimantan Selatan (Promo 11.11)</title>
   <meta name="description" content="Promo 11.11 MyRepublic Kalimantan Selatan: Gratis Speed Upgrade 11 Bulan! Pasang WiFi Banjarmasin, Banjarbaru, Martapura & Kab. Banjar Rp 0 di muka. Harga termasuk PPN 11%." />
 
+  <!-- Security Hardening: Content-Security-Policy & Referrer-Policy -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://placehold.co; connect-src 'self' https://docs.google.com https://*.googleusercontent.com; base-uri 'self'; form-action 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
   <!-- Google Fonts: Sora (700, 800) & Plus Jakarta Sans (400, 500, 600, 700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -424,29 +428,28 @@
 
         <!-- 4. Dynamic Coverage Result Card -->
         <div id="coverageResult" class="hidden mt-6 rounded-2xl p-5 sm:p-6 border transition-all duration-300">
-            <div class="space-y-1.5">
-              <div class="flex flex-wrap items-center gap-2">
-                <span id="resultBadge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider"></span>
-                <span id="resultCityTag" class="px-3 py-1 rounded-full text-xs font-semibold bg-white/80 text-slate-700 border border-slate-200"></span>
-              </div>
-              <h3 id="resultTitle" class="font-display font-extrabold text-lg sm:text-xl text-[#180638] pt-1"></h3>
-              <p id="resultDesc" class="text-sm text-slate-700 leading-relaxed"></p>
-              <p id="resultGpsLink" class="hidden text-xs font-semibold text-emerald-700 pt-1"></p>
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="resultBadge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider"></span>
+              <span id="resultCityTag" class="px-3 py-1 rounded-full text-xs font-semibold bg-white/80 text-slate-700 border border-slate-200"></span>
             </div>
+            <h3 id="resultTitle" class="font-display font-extrabold text-lg sm:text-xl text-[#180638] pt-1"></h3>
+            <p id="resultDesc" class="text-sm text-slate-700 leading-relaxed"></p>
+            <p id="resultGpsLink" class="hidden text-xs font-semibold text-emerald-700 pt-1"></p>
+          </div>
 
-            <div class="shrink-0">
-              <button
-                type="button"
-                id="btnSendCoverageWa"
-                onclick="sendCoverageToWhatsApp()"
-                class="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-sm bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition cursor-pointer"
-              >
-                <span>Kirim Titik &amp; Cek ODP via WhatsApp</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
-            </div>
+          <div class="shrink-0">
+            <button
+              type="button"
+              id="btnSendCoverageWa"
+              onclick="sendCoverageToWhatsApp()"
+              class="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-bold text-sm bg-[#BEF264] hover:bg-[#d2fa87] text-[#141E00] shadow-glow-lime transition cursor-pointer"
+            >
+              <span>Kirim Titik &amp; Cek ODP via WhatsApp</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -1560,9 +1563,10 @@
     function getUtmFooter() {
       try {
         const params = new URLSearchParams(window.location.search);
-        const utmSource = params.get('utm_source');
-        const utmMedium = params.get('utm_medium');
-        const utmCampaign = params.get('utm_campaign');
+        const sanitizeUtm = (val) => val ? String(val).replace(/[^\w\-. ]/g, '').slice(0, 64) : '';
+        const utmSource = sanitizeUtm(params.get('utm_source'));
+        const utmMedium = sanitizeUtm(params.get('utm_medium'));
+        const utmCampaign = sanitizeUtm(params.get('utm_campaign'));
 
         const utmParts = [];
         if (utmSource) utmParts.push(`utm_source=${utmSource}`);
@@ -1698,7 +1702,7 @@
       { name: 'AREA SEMANGAT DALAM & ALALAK BATOLA (VERIFIKASI ODP)', city: 'Kab. Barito Kuala (Handil Bakti & Sekitarnya)', status: 'REGULER' },
     ];
 
-    // Normalisasi penulisan nama kota dari Google Sheets agar memisahkan Kab. Banjar I & Kab. Banjar II dengan akurat
+    // Normalisasi penulisan nama kota dari Google Sheets
     function normalizeCityName(rawCity, rawClusterName = '') {
       const c = String(rawCity || '').trim().toLowerCase();
       const n = String(rawClusterName || '').trim().toLowerCase();
@@ -1711,7 +1715,6 @@
         return 'Kab. Barito Kuala (Handil Bakti & Sekitarnya)';
       }
 
-      // Deteksi Kab. Banjar I (Gambut & Sekitarnya)
       if (
         c.includes('banjar i') ||
         c.includes('banjar 1') ||
@@ -1729,7 +1732,6 @@
         return 'Kab. Banjar I (Gambut & Sekitarnya)';
       }
 
-      // Deteksi Kab. Banjar II (Martapura & Sekitarnya)
       if (
         c.includes('banjar ii') ||
         c.includes('banjar 2') ||
@@ -1749,10 +1751,10 @@
         return 'Kab. Banjar II (Martapura & Sekitarnya)';
       }
 
-      return rawCity.trim();
+      return rawCity.trim().slice(0, 80);
     }
 
-    // Parser CSV fleksibel (mendukung delimiter koma ',' maupun titik koma ';')
+    // Parser CSV fleksibel
     function parseCsvLine(line, delimiter) {
       const result = [];
       let current = '';
@@ -1789,25 +1791,24 @@
         const lines = csvText.split(/\r?\n/).filter(l => l.trim() !== '');
         if (lines.length < 2) return;
 
-        // Deteksi delimiter otomatis (, atau ;)
         const delimiter = (lines[0].split(';').length > lines[0].split(',').length) ? ';' : ',';
         const headers = parseCsvLine(lines[0], delimiter).map(h => h.replace(/^\uFEFF/, '').toLowerCase().trim());
 
-        // Fleksibel membaca variasi nama header kolom
         let nameIdx = headers.findIndex(h => ['name', 'nama', 'cluster', 'area', 'perumahan', 'lokasi'].includes(h));
         let cityIdx = headers.findIndex(h => ['city', 'kota', 'kabupaten', 'kota/kabupaten', 'wilayah'].includes(h));
         let statusIdx = headers.findIndex(h => ['status', 'kategori', 'zona', 'tipe'].includes(h));
 
-        // Jika header tidak ditemukan, gunakan urutan kolom default A=name, B=city, C=status
         if (nameIdx === -1) nameIdx = 0;
         if (cityIdx === -1) cityIdx = 1;
         if (statusIdx === -1) statusIdx = 2;
 
         const parsedList = [];
-        for (let i = 1; i < lines.length; i++) {
+        const maxRows = Math.min(lines.length, 3000); // Batasi maksimal baris untuk keamanan memori
+        for (let i = 1; i < maxRows; i++) {
           const cols = parseCsvLine(lines[i], delimiter);
-          const rawName = (cols[nameIdx] || '').replace(/\s+/g, ' ').trim().toUpperCase();
-          const rawCity = cols[cityIdx] || '';
+          // Hapus karakter kontrol berbahaya & batasi panjang string
+          const rawName = (cols[nameIdx] || '').replace(/[\x00-\x1F\x7F]/g, '').replace(/\s+/g, ' ').trim().toUpperCase().slice(0, 140);
+          const rawCity = (cols[cityIdx] || '').replace(/[\x00-\x1F\x7F]/g, '').slice(0, 80);
           const rawStatus = (cols[statusIdx] || 'REGULER').trim().toUpperCase();
 
           if (rawName) {
@@ -1827,7 +1828,7 @@
           }
         }
       } catch (err) {
-        // Tetap gunakan CLUSTER_DATABASE fallback internal jika gagal memuat CSV
+        // Tetap gunakan CLUSTER_DATABASE fallback internal
       }
     }
 
@@ -1847,16 +1848,13 @@
     const btnGetGps = document.getElementById('btnGetGps');
     const gpsBtnText = document.getElementById('gpsBtnText');
     const gpsStatusBox = document.getElementById('gpsStatusBox');
-    const btnCheckCoverage = document.getElementById('btnCheckCoverage');
     const coverageResultEl = document.getElementById('coverageResult');
     const resultBadgeEl = document.getElementById('resultBadge');
     const resultCityTagEl = document.getElementById('resultCityTag');
     const resultTitleEl = document.getElementById('resultTitle');
     const resultDescEl = document.getElementById('resultDesc');
     const resultGpsLinkEl = document.getElementById('resultGpsLink');
-    const btnSendCoverageWa = document.getElementById('btnSendCoverageWa');
 
-    // Pencarian cerdas: prioritaskan kota terpilih, namun jika ketikan user cocok di kota lain tetap tampilkan agar tidak pernah "tidak ditemukan"
     function findMatchingClusters(keyword = '') {
       const selectedCity = areaCityEl.value;
       const cleanKey = keyword.replace(/\s+/g, ' ').trim().toLowerCase();
@@ -1875,58 +1873,81 @@
         return cityMatches;
       }
 
-      // Fallback lintas kota apabila pengguna salah memilih dropdown kota (misal Tambak Sirang dicari saat dropdown di Banjarmasin atau Kab. Banjar)
       return CLUSTER_DATABASE.filter(item => item.name.toLowerCase().includes(cleanKey));
     }
 
-    // Render Autocomplete Suggestions
+    // XSS-Safe DOM Rendering (Menggunakan createElement & textContent, bebas dari innerHTML)
     function renderSuggestions(keyword = '') {
       const matches = findMatchingClusters(keyword);
+      clusterSuggestionsEl.replaceChildren();
 
       if (matches.length === 0) {
-        clusterSuggestionsEl.innerHTML = `
-          <div class="p-3.5 text-xs text-slate-600 bg-purple-50/60">
-            Lokasi <strong>"${keyword}"</strong> belum ada di daftar singkat — tetap bisa dicek manual! Klik tombol <strong>"Cek Ketersediaan Sekarang"</strong>.
-          </div>
-        `;
+        const emptyBox = document.createElement('div');
+        emptyBox.className = 'p-3.5 text-xs text-slate-600 bg-purple-50/60';
+        emptyBox.append('Lokasi ');
+
+        const strongKw = document.createElement('strong');
+        strongKw.textContent = `"${keyword}"`;
+        emptyBox.appendChild(strongKw);
+
+        emptyBox.append(' belum ada di daftar singkat — tetap bisa dicek manual! Klik tombol ');
+
+        const strongBtn = document.createElement('strong');
+        strongBtn.textContent = '"Cek Ketersediaan Sekarang"';
+        emptyBox.appendChild(strongBtn);
+        emptyBox.append('.');
+
+        clusterSuggestionsEl.appendChild(emptyBox);
         clusterSuggestionsEl.classList.remove('hidden');
         return;
       }
 
-      clusterSuggestionsEl.innerHTML = matches.map(item => {
-        const badgeHtml = item.status === 'SPECIAL'
-          ? '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 shrink-0">Zona Cluster Spesial</span>'
-          : '<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 shrink-0">Cluster RFS Aktif</span>';
+      const fragment = document.createDocumentFragment();
+      matches.forEach(item => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'suggestion-item w-full text-left px-4 py-3 hover:bg-purple-50 transition flex items-center justify-between gap-3 cursor-pointer';
 
-        return `
-          <button
-            type="button"
-            class="suggestion-item w-full text-left px-4 py-3 hover:bg-purple-50 transition flex items-center justify-between gap-3 cursor-pointer"
-            data-name="${item.name}"
-            data-city="${item.city}"
-          >
-            <div>
-              <span class="text-xs sm:text-sm font-semibold text-slate-800 block">${item.name}</span>
-              <span class="text-[11px] text-slate-500">${item.city}</span>
-            </div>
-            ${badgeHtml}
-          </button>
-        `;
-      }).join('');
+        const infoWrapper = document.createElement('div');
 
-      clusterSuggestionsEl.classList.remove('hidden');
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'text-xs sm:text-sm font-semibold text-slate-800 block';
+        nameSpan.textContent = item.name;
 
-      document.querySelectorAll('.suggestion-item').forEach(btn => {
+        const citySpan = document.createElement('span');
+        citySpan.className = 'text-[11px] text-slate-500';
+        citySpan.textContent = item.city;
+
+        infoWrapper.appendChild(nameSpan);
+        infoWrapper.appendChild(citySpan);
+
+        const badgeSpan = document.createElement('span');
+        if (item.status === 'SPECIAL') {
+          badgeSpan.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 shrink-0';
+          badgeSpan.textContent = 'Zona Cluster Spesial';
+        } else {
+          badgeSpan.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-100 text-purple-800 shrink-0';
+          badgeSpan.textContent = 'Cluster RFS Aktif';
+        }
+
+        btn.appendChild(infoWrapper);
+        btn.appendChild(badgeSpan);
+
         btn.addEventListener('click', () => {
-          clusterInputEl.value = btn.dataset.name;
-          if (btn.dataset.city && areaCityEl.value !== 'ALL') {
-            areaCityEl.value = btn.dataset.city;
+          clusterInputEl.value = item.name;
+          if (item.city && areaCityEl.value !== 'ALL') {
+            areaCityEl.value = item.city;
           }
           clearClusterBtn.classList.remove('hidden');
           clusterSuggestionsEl.classList.add('hidden');
           evaluateCoverage();
         });
+
+        fragment.appendChild(btn);
       });
+
+      clusterSuggestionsEl.appendChild(fragment);
+      clusterSuggestionsEl.classList.remove('hidden');
     }
 
     clusterInputEl.addEventListener('focus', () => renderSuggestions(clusterInputEl.value));
@@ -1956,23 +1977,18 @@
 
     // Browser Geolocation API Handler + Auto-Detect Kota/Kabupaten Kalsel
     function detectKalselCityFromCoords(lat, lng) {
-      // Banjarmasin: sekitar lat -3.37 s/d -3.27, lng 114.55 s/d 114.64
       if (lat >= -3.375 && lat <= -3.275 && lng >= 114.55 && lng <= 114.645) {
         return 'Banjarmasin';
       }
-      // Kab. Barito Kuala (Handil Bakti, Alalak & sekitarnya): utara/barat Banjarmasin
       if (lat > -3.285 && lng >= 114.45 && lng <= 114.66) {
         return 'Kab. Barito Kuala (Handil Bakti & Sekitarnya)';
       }
-      // Banjarbaru: sekitar lat -3.49 s/d -3.41, lng 114.70 s/d 114.88
       if (lat >= -3.50 && lat <= -3.405 && lng >= 114.69 && lng <= 114.885) {
         return 'Banjarbaru';
       }
-      // Kab. Banjar I (Gambut, Kertak Hanyar, Sungai Tabuk, Tatah Makmur): antara BJM dan BJB
       if (lat >= -3.46 && lat <= -3.28 && lng > 114.63 && lng < 114.77) {
         return 'Kab. Banjar I (Gambut & Sekitarnya)';
       }
-      // Kab. Banjar II (Martapura, Astambul & sekitarnya): timur/timur laut Banjarbaru
       if (lat >= -3.46 && lat <= -3.25 && lng >= 114.77) {
         return 'Kab. Banjar II (Martapura & Sekitarnya)';
       }
@@ -2019,7 +2035,13 @@
 
           const cityInfoText = detectedCity ? ` • Wilayah terdeteksi: ${detectedCity}` : '';
           if (targetBtnTextEl) targetBtnTextEl.textContent = 'Titik Koordinat GPS Berhasil Dikunci!';
-          targetStatusEl.innerHTML = `✅ <strong>Titik Koordinat GPS Berhasil Dikunci!</strong> (${lat}, ${lng})${cityInfoText}`;
+
+          targetStatusEl.replaceChildren();
+          targetStatusEl.append('✅ ');
+          const strongLabel = document.createElement('strong');
+          strongLabel.textContent = 'Titik Koordinat GPS Berhasil Dikunci!';
+          targetStatusEl.appendChild(strongLabel);
+          targetStatusEl.append(` (${lat}, ${lng})${cityInfoText}`);
           targetStatusEl.className = 'text-xs font-semibold px-3.5 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 block';
 
           if (!coverageResultEl.classList.contains('hidden')) {
@@ -2046,7 +2068,6 @@
       const displayArea = rawInput || `Area ${selectedCity}`;
       const normalized = rawInput.toUpperCase();
 
-      // Tutup dropdown autocomplete saat mengecek
       clusterSuggestionsEl.classList.add('hidden');
 
       const matchedEntry = normalized
@@ -2097,7 +2118,6 @@
       }
     }
 
-    // Dukung tekan tombol Enter di kolom input cluster
     clusterInputEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
