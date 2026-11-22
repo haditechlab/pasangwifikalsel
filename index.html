@@ -623,6 +623,63 @@
           </div>
         </div>
       </div>
+
+      <!-- BROWSEABLE CLUSTER DIRECTORY (SEO & LOCAL TRUST) -->
+      <div class="mt-10 pt-8 border-t border-purple-100">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h3 class="font-display font-extrabold text-lg sm:text-xl text-midnight">
+                Direktori Area &amp; Cluster Tercover di Kalsel
+              </h3>
+              <span id="directoryCountBadge" class="px-3 py-0.5 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800">
+                Memuat lokasi...
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 mt-1">
+              Klik salah satu nama komplek/area di bawah untuk langsung mengecek status dan konsultasi via WhatsApp.
+            </p>
+          </div>
+
+          <!-- Directory City Filter Pills -->
+          <div class="flex flex-wrap gap-1.5" id="dirCityTabs">
+            <button type="button" data-dir-city="ALL" class="dir-tab active px-3 py-1.5 rounded-full text-xs font-bold bg-midnight text-white transition cursor-pointer">
+              Semua
+            </button>
+            <button type="button" data-dir-city="Banjarmasin" class="dir-tab px-3 py-1.5 rounded-full text-xs font-bold bg-lavender text-slate-700 hover:bg-purple-100 transition cursor-pointer">
+              Banjarmasin
+            </button>
+            <button type="button" data-dir-city="Banjarbaru" class="dir-tab px-3 py-1.5 rounded-full text-xs font-bold bg-lavender text-slate-700 hover:bg-purple-100 transition cursor-pointer">
+              Banjarbaru
+            </button>
+            <button type="button" data-dir-city="Kab. Banjar I (Gambut &amp; Sekitarnya)" class="dir-tab px-3 py-1.5 rounded-full text-xs font-bold bg-lavender text-slate-700 hover:bg-purple-100 transition cursor-pointer">
+              Kab. Banjar I
+            </button>
+            <button type="button" data-dir-city="Kab. Banjar II (Martapura &amp; Sekitarnya)" class="dir-tab px-3 py-1.5 rounded-full text-xs font-bold bg-lavender text-slate-700 hover:bg-purple-100 transition cursor-pointer">
+              Kab. Banjar II
+            </button>
+            <button type="button" data-dir-city="Kab. Barito Kuala (Handil Bakti &amp; Sekitarnya)" class="dir-tab px-3 py-1.5 rounded-full text-xs font-bold bg-lavender text-slate-700 hover:bg-purple-100 transition cursor-pointer">
+              Barito Kuala
+            </button>
+          </div>
+        </div>
+
+        <div id="clusterDirectoryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"></div>
+
+        <div class="mt-5 text-center">
+          <button
+            id="loadMoreClustersBtn"
+            type="button"
+            onclick="loadMoreDirectoryClusters()"
+            class="hidden inline-flex items-center justify-center gap-2 px-6 py-2.5 min-h-[42px] rounded-full border border-purple-300 bg-white hover:bg-purple-50 text-purple-800 font-bold text-xs sm:text-sm transition cursor-pointer"
+          >
+            <span>Tampilkan Lebih Banyak Area</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -690,7 +747,7 @@
             <ul class="mt-4 space-y-2 text-xs text-slate-600">
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal untuk 1–2 perangkat</li>
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Unlimited sesuai ketentuan berlaku</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> WiFi Router dipinjamkan</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -721,7 +778,7 @@
             <ul class="mt-4 space-y-2 text-xs text-slate-600">
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal untuk 2–3 perangkat</li>
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Unlimited sesuai ketentuan berlaku</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> WiFi Router dipinjamkan</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -761,6 +818,7 @@
               </div>
             </div>
             <p class="text-xs text-gray-500 mt-2">Sudah termasuk PPN 11%. Info upgrade speed, tanya admin untuk S&amp;K dan ketersediaan area.</p>
+            <p class="text-[11px] text-emerald-700 font-semibold mt-1.5">✓ Include ONT/Modem WiFi (dipinjamkan)</p>
           </div>
           <button
             type="button"
@@ -799,6 +857,7 @@
               </div>
             </div>
             <p class="text-xs text-gray-500 mt-2">Sudah termasuk PPN 11%. Info upgrade speed, tanya admin untuk S&amp;K dan ketersediaan area.</p>
+            <p class="text-[11px] text-emerald-700 font-semibold mt-1.5">✓ Include ONT/Modem WiFi (dipinjamkan)</p>
           </div>
           <button
             type="button"
@@ -844,8 +903,8 @@
             </div>
             <ul class="mt-4 space-y-2 text-xs text-slate-600">
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal untuk 5–7 perangkat</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Unlimited sesuai ketentuan</li>
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Upload &amp; Download Simetris</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -882,8 +941,8 @@
             </div>
             <ul class="mt-4 space-y-2 text-xs text-slate-700 font-medium">
               <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Ideal untuk 7–10 perangkat</li>
-              <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Unlimited sesuai ketentuan</li>
               <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Streaming 4K &amp; WFH lancar</li>
+              <li class="flex items-center gap-2"><span class="text-amber-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -920,8 +979,8 @@
             </div>
             <ul class="mt-4 space-y-2 text-xs text-slate-700 font-medium">
               <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Ideal untuk 10–15 perangkat</li>
-              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Unlimited sesuai ketentuan</li>
               <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Live streaming &amp; WFH aktif</li>
+              <li class="flex items-center gap-2"><span class="text-purple-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -952,8 +1011,8 @@
             </div>
             <ul class="mt-4 space-y-2 text-xs text-slate-600">
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal untuk 15+ perangkat</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Unlimited sesuai ketentuan</li>
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Smart home &amp; usaha kecil</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -985,7 +1044,7 @@
             <ul class="mt-4 space-y-2 text-xs text-slate-600">
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Bonus langganan Vidio Lite</li>
               <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Ideal kantor, kafe &amp; keluarga besar</li>
-              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Unlimited sesuai ketentuan</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-600 font-bold">✓</span> Include ONT/Modem WiFi (dipinjamkan)</li>
             </ul>
           </div>
           <button
@@ -1096,6 +1155,61 @@
       Gratis instalasi standar s.d. 150m dari ODP. Di atas itu akan diinfokan dulu biayanya sebelum pasang. Kecepatan dapat bervariasi tergantung kondisi jaringan &amp; perangkat.
     </p>
 
+    <!-- COMBO TV ADD-ON & SYARAT KETENTUAN LENGKAP (TRANSPARENCY) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+      <!-- Combo TV Option -->
+      <div class="lg:col-span-5 bg-white rounded-3xl border border-purple-100 p-6 sm:p-7 shadow-card-soft flex flex-col justify-between">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-indigo-100 text-indigo-800 mb-3">
+            Opsi Hiburan Keluarga
+          </span>
+          <h3 class="font-display font-extrabold text-xl text-midnight">
+            Tersedia Opsi Paket Combo TV (+70 Channel TV)
+          </h3>
+          <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+            Ingin internet rumah sekaligus tayangan hiburan keluarga? Tersedia opsi bundling <strong>Combo TV</strong> (akses 70+ channel lokal &amp; internasional + STB Android) dengan penambahan biaya mulai <strong>+Rp 85.000/bulan</strong> (sebelum PPN 11%).
+          </p>
+        </div>
+        <div class="mt-5 pt-4 border-t border-slate-100">
+          <button
+            type="button"
+            onclick="openWhatsAppGeneral('Halo Admin PasangWiFiKalsel (ID Sales: D6305858), saya ingin tanya rincian harga Paket Internet + Combo TV MyRepublic.')"
+            class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 min-h-[44px] rounded-full bg-lavender hover:bg-purple-100 text-purple-800 font-bold text-xs sm:text-sm border border-purple-200 transition cursor-pointer"
+          >
+            <span>Tanya Paket Internet + Combo TV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Structured Terms & Conditions 01-04 -->
+      <div class="lg:col-span-7 bg-white rounded-3xl border border-purple-100 p-6 sm:p-7 shadow-card-soft">
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <h3 class="font-display font-extrabold text-lg sm:text-xl text-midnight">
+            Syarat &amp; Ketentuan Informasi Paket
+          </h3>
+          <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">Transparansi Info</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+          <div class="p-3.5 rounded-2xl bg-lavender border border-purple-100">
+            <span class="font-display font-extrabold text-pink-600 block mb-1">01 • Periode Informasi</span>
+            <p class="text-slate-600 leading-relaxed">Berlaku untuk pendaftaran baru periode 11–30 November 2026 selama kuota area &amp; port ODP tersedia.</p>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-lavender border border-purple-100">
+            <span class="font-display font-extrabold text-purple-700 block mb-1">02 • Ketentuan Upgrade Speed</span>
+            <p class="text-slate-600 leading-relaxed">Info upgrade kecepatan 11 bulan berlaku untuk paket terpilih sesuai ketentuan MyRepublic. Detail lengkap dijelaskan sebelum daftar.</p>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-lavender border border-purple-100">
+            <span class="font-display font-extrabold text-indigo-700 block mb-1">03 • Pajak PPN 11%</span>
+            <p class="text-slate-600 leading-relaxed">Seluruh nominal harga paket di atas sudah termasuk PPN 11% sehingga transparan sejak awal.</p>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-lavender border border-purple-100">
+            <span class="font-display font-extrabold text-emerald-700 block mb-1">04 • Perangkat &amp; Pembayaran Resmi</span>
+            <p class="text-slate-600 leading-relaxed">Perangkat ONT/Modem WiFi dipinjamkan selama berlangganan. Pembayaran tagihan dilakukan melalui kanal resmi MyRepublic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ADD-ON BOOSTER HIGHLIGHT BANNER -->
     <div class="rounded-3xl bg-gradient-to-r from-pink-600 via-purple-700 to-indigo-900 p-6 sm:p-8 lg:p-10 text-white shadow-xl">
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -1179,6 +1293,26 @@
           <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
             Mencakup koridor Gambut, Kertak Hanyar, Sungai Tabuk, Astambul, hingga kawasan berkembang di Handil Bakti dan Alalak (Kabupaten Barito Kuala).
           </p>
+        </div>
+      </div>
+
+      <!-- Branch Office Local Trust Card -->
+      <div class="mt-6 p-4 sm:p-5 rounded-2xl bg-lavender/80 border border-purple-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-midnight text-limebtn flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-purple-800 block">Kantor Cabang MyRepublic Banjarmasin</span>
+            <p class="text-xs sm:text-sm font-bold text-midnight mt-0.5">
+              Jl. A. Yani Km. 5,5 No. 472, Pemurus Dalam, Kec. Banjarmasin Selatan, Kota Banjarmasin, Kalimantan Selatan 70238
+            </p>
+            <p class="text-[11px] text-slate-600 mt-1">
+              Pembayaran tagihan bulanan resmi dilakukan melalui Virtual Account / kanal pembayaran resmi MyRepublic setelah layanan aktif.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -1411,6 +1545,9 @@
           <div class="inline-block px-3.5 py-2 rounded-xl bg-white/10 border border-white/15 text-xs font-semibold text-limebtn">
             Sales Resmi MyRepublic - Area Banjarmasin | ID Sales: D6305858 | Konfirmasi ke WA resmi di atas
           </div>
+          <p class="text-[11px] text-purple-200/75 leading-relaxed">
+            Kantor Cabang Banjarmasin: Jl. A. Yani Km. 5,5 No. 472, Pemurus Dalam, Kec. Banjarmasin Sel., Kota Banjarmasin, Kalimantan Selatan 70238. Pembayaran tagihan resmi melalui kanal resmi MyRepublic (Virtual Account / Retail).
+          </p>
         </div>
 
         <div class="md:col-span-3 space-y-2.5">
@@ -1739,6 +1876,7 @@
           if (txt) {
             txt.textContent = 'Database area terhubung (' + parsed.length + ' titik area Kalsel)';
           }
+          renderClusterDirectory(true);
         }
       } catch (err) {
         if (dot) {
@@ -1748,10 +1886,106 @@
         if (txt) {
           txt.textContent = 'Database area aktif (' + ACTIVE_CLUSTERS.length + ' area Kalsel)';
         }
+        renderClusterDirectory(true);
       }
     }
 
     loadClustersFromGoogleSheet();
+
+    // =========================================================================
+    // 3B. BROWSEABLE CLUSTER DIRECTORY RENDERER
+    // =========================================================================
+    const clusterDirectoryGrid = document.getElementById('clusterDirectoryGrid');
+    const directoryCountBadge = document.getElementById('directoryCountBadge');
+    const loadMoreClustersBtn = document.getElementById('loadMoreClustersBtn');
+    const dirTabs = document.querySelectorAll('.dir-tab');
+
+    let currentDirCity = 'ALL';
+    let dirVisibleLimit = 12;
+
+    function renderClusterDirectory(resetLimit) {
+      if (!clusterDirectoryGrid) return;
+      if (resetLimit) dirVisibleLimit = 12;
+
+      const filtered = ACTIVE_CLUSTERS.filter(function (item) {
+        return currentDirCity === 'ALL' || item.city === currentDirCity;
+      });
+
+      if (directoryCountBadge) {
+        directoryCountBadge.textContent = 'Ditemukan ' + filtered.length + ' titik area tercover';
+      }
+
+      const slice = filtered.slice(0, dirVisibleLimit);
+      const fragment = document.createDocumentFragment();
+
+      slice.forEach(function (item) {
+        const isSpecial = item.status === 'SPECIAL';
+        const cardBtn = document.createElement('button');
+        cardBtn.type = 'button';
+        cardBtn.className = 'text-left p-3 rounded-xl border border-purple-100 bg-lavender/60 hover:bg-purple-50 hover:border-purple-300 flex items-center justify-between gap-2.5 transition cursor-pointer';
+
+        const textWrap = document.createElement('div');
+        textWrap.className = 'min-w-0';
+
+        const titleEl = document.createElement('p');
+        titleEl.className = 'text-xs font-bold text-midnight truncate';
+        titleEl.textContent = item.name;
+
+        const subEl = document.createElement('p');
+        subEl.className = 'text-[11px] text-slate-500 truncate mt-0.5';
+        subEl.textContent = item.city;
+
+        textWrap.appendChild(titleEl);
+        textWrap.appendChild(subEl);
+
+        const tagEl = document.createElement('span');
+        tagEl.className = 'shrink-0 px-2 py-0.5 rounded-full text-[10px] font-extrabold ' +
+          (isSpecial ? 'bg-emerald-100 text-emerald-800' : 'bg-purple-100 text-purple-800');
+        tagEl.textContent = isSpecial ? 'AREA TERPILIH' : 'TERCOVER';
+
+        cardBtn.appendChild(textWrap);
+        cardBtn.appendChild(tagEl);
+
+        cardBtn.addEventListener('click', function () {
+          citySelect.value = item.city;
+          clusterInput.value = item.name;
+          selectedClusterObj = item;
+          evaluateCoverage(true);
+        });
+
+        fragment.appendChild(cardBtn);
+      });
+
+      clusterDirectoryGrid.replaceChildren(fragment);
+
+      if (loadMoreClustersBtn) {
+        if (filtered.length > dirVisibleLimit) {
+          loadMoreClustersBtn.classList.remove('hidden');
+        } else {
+          loadMoreClustersBtn.classList.add('hidden');
+        }
+      }
+    }
+
+    function loadMoreDirectoryClusters() {
+      dirVisibleLimit += 18;
+      renderClusterDirectory(false);
+    }
+
+    dirTabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        dirTabs.forEach(function (t) {
+          t.classList.remove('bg-midnight', 'text-white');
+          t.classList.add('bg-lavender', 'text-slate-700');
+        });
+        tab.classList.add('bg-midnight', 'text-white');
+        tab.classList.remove('bg-lavender', 'text-slate-700');
+        currentDirCity = tab.getAttribute('data-dir-city') || 'ALL';
+        renderClusterDirectory(true);
+      });
+    });
+
+    renderClusterDirectory(true);
 
     // =========================================================================
     // 4. INTERACTIVE CLUSTER SEARCH & EVALUATION
